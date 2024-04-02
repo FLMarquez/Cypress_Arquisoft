@@ -24,6 +24,8 @@ git add .
 git commit -m "Modificaciones realizadas xxxxxx"
 //PARA VER TODOS LOS MOVIMIENTOS REALIZADOS
 git reflog
+//KEY git
+npx cypress run --record --key ad692a6c-d327-4f85-8d60-ceebccd92331
 
 
 

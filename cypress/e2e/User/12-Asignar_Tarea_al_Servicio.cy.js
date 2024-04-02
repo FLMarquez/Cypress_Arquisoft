@@ -38,7 +38,7 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
       cy.get('h1').should("be.visible").contains("Tareas para Construcción de Vivienda") 
       cy.get('.pb-3 > :nth-child(4)').should("be.visible").contains("Permite administrar las tareas") 
 
-      cy.get('[href="/AssignmentType/Create/6"]').should("be.visible").click()
+      cy.xpath("//a[contains(.,'Crear Nueva Tarea')]").should("be.visible").click()
       cy.get('h1').should("be.visible").contains("Agregar Tipos de Tarea") 
       cy.get('.pb-3 > :nth-child(4)').should("be.visible").contains("Permite agregar nuevas categorías")
       cy.get(':nth-child(1) > .control-label').should("be.visible").contains("Nombre del Tipo Tarea") 
@@ -47,7 +47,7 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
       cy.get('#AssignmentTypeDescription').should("be.visible").type("Planificación de recursos para Proyectos Sin Detalle Prueba")
       cy.get('.m-3 > .btn-primary').should("be.visible").click()
 
-      cy.get('[href="/AssignmentType/Create/6"]').should("be.visible").click()
+      cy.xpath("//a[contains(.,'Crear Nueva Tarea')]").should("be.visible").click()
       cy.get('h1').should("be.visible").contains("Agregar Tipos de Tarea") 
       cy.get('.pb-3 > :nth-child(4)').should("be.visible").contains("Permite agregar nuevas categorías")
       cy.get(':nth-child(1) > .control-label').should("be.visible").contains("Nombre del Tipo Tarea") 
@@ -56,7 +56,7 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
       cy.get('#AssignmentTypeDescription').should("be.visible").type("Diseño preliminar para Proyectos Sin Detalle Prueba")
       cy.get('.m-3 > .btn-primary').should("be.visible").click()
 
-      cy.get('[href="/AssignmentType/Create/6"]').should("be.visible").click()
+      cy.xpath("//a[contains(.,'Crear Nueva Tarea')]").should("be.visible").click()
       cy.get('h1').should("be.visible").contains("Agregar Tipos de Tarea") 
       cy.get('.pb-3 > :nth-child(4)').should("be.visible").contains("Permite agregar nuevas categorías")
       cy.get(':nth-child(1) > .control-label').should("be.visible").contains("Nombre del Tipo Tarea") 
@@ -65,7 +65,7 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
       cy.get('#AssignmentTypeDescription').should("be.visible").type("Adquisición de materiales para Proyecto Sin Detalle Prueba")
       cy.get('.m-3 > .btn-primary').should("be.visible").click()
 
-      cy.get('[href="/AssignmentType/Create/6"]').should("be.visible").click()
+      cy.xpath("//a[contains(.,'Crear Nueva Tarea')]").should("be.visible").click()
       cy.get('h1').should("be.visible").contains("Agregar Tipos de Tarea") 
       cy.get('.pb-3 > :nth-child(4)').should("be.visible").contains("Permite agregar nuevas categorías")
       cy.get(':nth-child(1) > .control-label').should("be.visible").contains("Nombre del Tipo Tarea") 
@@ -74,7 +74,7 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
       cy.get('#AssignmentTypeDescription').should("be.visible").type("Supervición de construcción para Proyecto Sin Detalle Prueba")
       cy.get('.m-3 > .btn-primary').should("be.visible").click()
 
-      cy.get('[href="/AssignmentType/Create/6"]').should("be.visible").click()
+      cy.xpath("//a[contains(.,'Crear Nueva Tarea')]").should("be.visible").click()
       cy.get('h1').should("be.visible").contains("Agregar Tipos de Tarea") 
       cy.get('.pb-3 > :nth-child(4)').should("be.visible").contains("Permite agregar nuevas categorías")
       cy.get(':nth-child(1) > .control-label').should("be.visible").contains("Nombre del Tipo Tarea") 

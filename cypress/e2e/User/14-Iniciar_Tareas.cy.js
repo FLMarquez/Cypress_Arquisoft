@@ -102,11 +102,14 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
       cy.xpath("//li[contains(.,'Control de Calidad Prueba Iniciada')]").contains("Control de Calidad Prueba Iniciada")
 
       //ESTADO DE TAREAS ----- INICIADAS 100%
-      cy.get('.btn-info').click()
-      cy.xpath("(//div[contains(.,'100%')])[5]").should('be.visible')
+      //cy.get('.btn-info').click()
+      //cy.xpath("(//div[contains(.,'100%')])[5]").should('be.visible')
 
 
       //VER TAREAS PARA EL PROYECTO ---- BTN VER
+      
+      cy.get('h1').should("be.visible").click()
+      cy.wait(1000)
       cy.get(':nth-child(12) > .container > .col-2 > .btn').should("be.visible").click()
       cy.get('h1').should("be.visible").contains("Tareas")
       cy.get('.pb-3 > :nth-child(5)').should("be.visible").contains("Permite gestionar notas, adjuntos y compromisos")

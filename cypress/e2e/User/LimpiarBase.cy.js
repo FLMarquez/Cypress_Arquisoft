@@ -30,8 +30,8 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
      //INGRESAR A PROYECTO, BUSCAR PROYECTO CASA DE 2 HABITACIONES CON HALL Y ELIMINARLO
      cy.get(':nth-child(5) > .nav-link').should("be.visible").click()
      cy.get('#dt-search-0').should("be.visible").type("Casa de 2 habitaciones con hall{enter}")
-    cy.get(':nth-child(2) > :nth-child(4) > .btn-group > .btn-danger').should("be.visible").click()
-    cy.get('h3.mb-3').should("be.visible").contains("¿Está seguro que desea borrar el proyecto Casa de 2 habitaciones con hall?")
+     cy.get('.btn-danger').should("be.visible").click()
+    cy.get('h3.mb-3').should("be.visible").contains("¿Está seguro que desea borrar el proyecto Casa de 2 habitaciones con hall")
     cy.get('.btn-danger').should("be.visible").click()
     cy.get('#dt-search-0').should("be.visible").type("Casa de 2 habitaciones con hall{enter}")
     cy.get('.dt-empty').should("be.visible").contains("No se encontraron resultados")

@@ -1,0 +1,30 @@
+//AGREGAR TODOS LOS ARCHIVOS QUE TENGO NUEVOS
+git add .
+//VER EL STATUS DE LOS QUE QUIERO SUBIR
+git status
+//SUBIR TODO
+git commit -m "Subiendo Cambios xxxxxxxx"
+//AGREGAR TODOS LOS ARCHIVOS QUE TENGAN LA SIGUIENTE  EXTENSIÓN
+git add *.mp4
+git add *.xls
+git add *.png
+git add *.txt
+//QUITAR TODOS LOS ARCHIVOS QUE TENGAN LA SIGUIENTE EXTENSIÓN
+git reset *.mp4
+git reset *.xls
+git reset *.png
+//RECUPERAR LOS ARCHIVO BORRADOS POR ACCIDENTE
+git  checkout -- .
+//VERIFICAR EL lg
+git lg
+//SELECCIONAR EL QUE NECESITE MODIFICAR
+git reset --soft xxxxxxxx
+Agregar o modiifcar lo necesario
+git add .
+git commit -m "Modificaciones realizadas xxxxxx"
+//PARA VER TODOS LOS MOVIMIENTOS REALIZADOS
+git reflog
+
+
+
+

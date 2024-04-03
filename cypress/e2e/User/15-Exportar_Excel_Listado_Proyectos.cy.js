@@ -47,9 +47,7 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
         cy.get('.pb-3 > :nth-child(4)').should("be.visible").contains("Descripción de esta función")
         cy.get('[href="/Project/ExportToExcel"]').should("be.visible").click()
        
-        cy.wait(15000) // Espera 5 segundos, por ejemplo
-
-       
+        cy.wait(1000)      
 
         //CERRAR SESIÓN  
         cy.get(':nth-child(8) > .nav-link').should("be.visible").click()   

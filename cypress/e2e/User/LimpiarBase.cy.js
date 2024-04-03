@@ -46,7 +46,7 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
      
      cy.get('.btn-danger').should("be.visible").click()
      cy.get('h3.mb-3').should("be.visible").contains("¿Está seguro que desea borrar al Usuario Marquez, Federico Lucas?")
-     cy.get('form > .btn-primary').should("be.visible").click()
+     cy.get('.btn-danger').should("be.visible").click()
      
      cy.get('#dt-search-0').should("be.visible").type("32785541{enter}")
      cy.get('.dt-empty').should("be.visible").contains("No se encontraron resultados")

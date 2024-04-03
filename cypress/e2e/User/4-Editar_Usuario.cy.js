@@ -15,9 +15,11 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
       //HACER CLIC EN EL BOTÓN INGRESAR
       cy.get('.btn-primary').should("be.visible").click()
        //INGRESAR A USUARIOS - CLIC USUARIOS
-       cy.get(':nth-child(3) > .nav-link').should("be.visible").click()              
+       cy.get(':nth-child(3) > .nav-link').should("be.visible").click()  
+       //BUSCAR A ROBERTO PERFUMO
+       cy.get('#dt-search-0').should("be.visible").type("Perfumo{enter}")
       //VERIFICAR LA EXISTENCIA DEL BOTÓN EDITAR 
-      cy.get(':nth-child(4) > :nth-child(6) > .btn-primary').should("be.visible").contains("Editar").click()
+      cy.get(':nth-child(6) > .btn-primary').should("be.visible").contains("Editar").click()
       //EDITAR LOS DATOS DEL USUARIO
         //NOMBRE
        cy.get(':nth-child(2) > .form-label').should("be.visible").contains("Nombre")

@@ -56,7 +56,7 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
      cy.get('#dt-search-0').should("be.visible").type("Vivienda Clásica con 2 habitaciones y hall{enter}")
      cy.get('.btn-danger').should("be.visible").click()
      cy.get('h3.mb-3').should("be.visible").contains("¿Está seguro que desea borrar el tipo Vivienda Clásica con 2 habitaciones y hall?")
-     cy.get('form > .btn-primary').should("be.visible").click()
+     cy.get('.btn-danger').should("be.visible").click()
      
      cy.get('#dt-search-0').should("be.visible").type("Vivienda Clásica con 2 habitaciones y hall{enter}")
      cy.get('.dt-empty').should("be.visible").contains("No se encontraron resultados")
@@ -64,10 +64,10 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
 
      //BUSCAR Y ELIMINAR SERVICIO
      cy.get(':nth-child(6) > .nav-link').should("be.visible").click()
-     cy.get('#dt-search-0').should("be.visible").type("Construcción de Vivienda{enter}")
-     cy.get('.btn-danger').should("be.visible").click()
+     //cy.get('#dt-search-0').should("be.visible").type("Construcción de Vivienda{enter}")
+     cy.get(':nth-child(3) > .card > .card-body > .btn-group > .btn-danger').should("be.visible").click()
      cy.get('h3.mb-3').should("be.visible").contains("¿Está seguro que desea borrar el servicio Construcción de Vivienda?")
-     cy.get('form > .btn-primary').should("be.visible").click()
+     cy.get('.btn-danger').should("be.visible").click()
      
      cy.get('#dt-search-0').should("be.visible").type("Construcción de Vivienda{enter}")
      cy.get('.dt-empty').should("be.visible").contains("No se encontraron resultados")

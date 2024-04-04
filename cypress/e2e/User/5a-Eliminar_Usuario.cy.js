@@ -30,5 +30,10 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
       //CLIC EN BOTÓN BORRAR
       cy.get('.btn-danger').should("be.visible").click()
 
+      //CERRAR  SESIÓN
+      cy.get(':nth-child(8) > .nav-link').should("be.visible").contains("Cerrar sesión").click()        
+      cy.get('.modal-body').should("be.visible").contains("¿Estás seguro de que deseas cerrar sesión?")  
+      cy.get('.modal-footer > .btn-primary').should("be.visible").click() 
+
     })
 })

@@ -57,6 +57,9 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
       cy.get('#localitySelect').should("be.visible").select("Córdoba") 
       cy.get('.m-3 > .btn-primary').should("be.visible").click()
       cy.wait(1000)
+      //VALIDAR LA CREACIÓN DEL NUEVO CLIENTE
+      cy.get('#dt-search-0').should("be.visible").type("Marquez")
+      cy.get('.sorting_1').should("be.visible").contains("Marquez")
 
       //CERRAR SESIÓN  
       cy.get(':nth-child(8) > .nav-link').should("be.visible").contains("Cerrar sesión").click()        

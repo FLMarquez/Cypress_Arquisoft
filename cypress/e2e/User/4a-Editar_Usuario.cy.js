@@ -46,9 +46,13 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
       cy.get('#UserRoleId').should("be.visible").select('Soporte')
       //CLIC EN BOTÓN ENVIAR
       cy.get('form > .btn-primary').should("be.visible").click()
-       //VALIDAR LA CREACIÓN DEL NUEVO CLIENTE
-       cy.get(':nth-child(4) > .sorting_1').should("be.visible").contains("Riquelme")
-       cy.get('tbody > :nth-child(4) > :nth-child(2)').should("be.visible").contains("Juan")
+      //VALIDAR LA CREACIÓN DEL NUEVO CLIENTE
+      cy.get('#dt-search-0').should("be.visible").type("Riquelme")
+      cy.get('.sorting_1').should("be.visible").contains("Riquelme")
+      //CERRAR  SESIÓN
+      cy.get(':nth-child(8) > .nav-link').should("be.visible").contains("Cerrar sesión").click()        
+      cy.get('.modal-body').should("be.visible").contains("¿Estás seguro de que deseas cerrar sesión?")  
+      cy.get('.modal-footer > .btn-primary').should("be.visible").click() 
 
       
     

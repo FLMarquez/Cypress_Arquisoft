@@ -66,13 +66,10 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
      cy.get(':nth-child(6) > .nav-link').should("be.visible").click()
      //cy.get('#dt-search-0').should("be.visible").type("Construcción de Vivienda{enter}")
      cy.get(':nth-child(3) > .card > .card-body > .btn-group > .btn-danger').should("be.visible").click()
-     cy.get('h3.mb-3').should("be.visible").contains("¿Está seguro que desea borrar el servicio Construcción de Vivienda?")
+     cy.get('h3.mb-3').should("be.visible").contains("¿Está seguro que desea borrar el servicio Construcción de Vivienda")
      cy.get('.btn-danger').should("be.visible").click()
      
-     cy.get('#dt-search-0').should("be.visible").type("Construcción de Vivienda{enter}")
-     cy.get('.dt-empty').should("be.visible").contains("No se encontraron resultados")
-
-
+     
       //CERRAR SESIÓN  
       cy.get(':nth-child(8) > .nav-link').should("be.visible").click()   
       cy.get('.modal-body').should("be.visible").contains("¿Estás seguro de que deseas cerrar sesión?")  

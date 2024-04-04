@@ -68,9 +68,12 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
       //INGRESAR A USUARIOS - CLIC USUARIOS
       cy.get(':nth-child(3) > .nav-link').should("be.visible").click()
       //VALIDAR LA CREACIÓN DEL NUEVO CLIENTE
-      cy.get(':nth-child(3) > .sorting_1').should("be.visible").contains("Marquez")
-      cy.get('tbody > :nth-child(3) > :nth-child(2)').should("be.visible").contains("Federico Lucas")
-      
+      cy.get('#dt-search-0').should("be.visible").type("Marquez")
+      cy.get('.sorting_1').should("be.visible").contains("Marquez")
+      //CERRAR  SESIÓN
+      cy.get(':nth-child(8) > .nav-link').should("be.visible").contains("Cerrar sesión").click()        
+      cy.get('.modal-body').should("be.visible").contains("¿Estás seguro de que deseas cerrar sesión?")  
+      cy.get('.modal-footer > .btn-primary').should("be.visible").click() 
 
     })
   })

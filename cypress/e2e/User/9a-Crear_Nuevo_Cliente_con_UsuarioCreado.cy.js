@@ -10,10 +10,13 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
       cy.get('.display-1').should("be.visible") 
       //VERIFICAR LAS IMAGENES DEL LOGIN, EL TÍTULO DE LOGIN USUARIO Y DESCRIPCIÓN
       cy.get(':nth-child(1) > .card > .card-img-top').should("be.visible")
+      cy.get(':nth-child(2) > .card > .card-img-top').should("be.visible")
       cy.get(':nth-child(1) > .card > .card-body > .card-title').should("be.visible")
+      cy.get(':nth-child(2) > .card > .card-body > .card-title').should("be.visible")
       cy.get(':nth-child(1) > .card > .card-body > .card-text').should("be.visible")
+      cy.get(':nth-child(2) > .card > .card-body > .card-text').should("be.visible")
       //CLIC EN INICIAR SESIÓN COMO USUARIO
-      cy.get(':nth-child(1) > .card > .card-body > div.text-center > .btn').should("be.visible").click()     
+      cy.get(':nth-child(1) > .card > .card-body > .card-title').should("be.visible").click()     
      //ESCRIBIR EL USUARIO Y CONTRASEÑA EN EL ACCESO A USUARIOS       
       cy.get('#Mail').should("be.visible").type("flucas.marquez@hotmail.com.ar")
       cy.get('#Password').should("be.visible").type("32785541")
@@ -40,7 +43,7 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
       cy.xpath('//a[@href="/Client/Create"]').should("be.visible").click()
       
       cy.xpath('//h1[contains(.,"Agregar un Cliente")]').should("be.visible").contains("Agregar un Cliente")
-      cy.get('.pb-3 > :nth-child(4)').should("be.visible").contains("Esta función, permite registrar nuevos clientes.")
+      cy.get('.pb-3 > :nth-child(4)').should("be.visible").contains("Registrar nuevo cliente")
       cy.get('#DocumentNumber').should("be.visible").click()
       cy.get('#DocumentNumber').should("be.visible").type("31355352")
       cy.get('#Name').should("be.visible").type("José Matías")

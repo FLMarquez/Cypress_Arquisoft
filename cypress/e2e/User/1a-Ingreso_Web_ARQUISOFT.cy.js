@@ -9,8 +9,8 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
       cy.get('.display-1').should("be.visible")
       cy.get(':nth-child(1) > .card > .card-body > .card-title').should("be.visible")
       cy.get(':nth-child(2) > .card > .card-body > .card-title').should("be.visible")
-      cy.get(':nth-child(1) > .card > .card-body > div.text-center > .btn').should("be.visible")
-      cy.get(':nth-child(2) > .card > .card-body > div.text-center > .btn').should("be.visible")
+      cy.get(':nth-child(1) > .card > .card-body > .card-text').should("be.visible")
+      cy.get(':nth-child(2) > .card > .card-body > .card-text').should("be.visible")
 
     })
 })

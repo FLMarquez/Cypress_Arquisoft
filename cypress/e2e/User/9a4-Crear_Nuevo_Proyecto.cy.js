@@ -10,10 +10,13 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
       cy.get('.display-1').should("be.visible") 
       //VERIFICAR LAS IMAGENES DEL LOGIN, EL TÍTULO DE LOGIN USUARIO Y DESCRIPCIÓN
       cy.get(':nth-child(1) > .card > .card-img-top').should("be.visible")
+      cy.get(':nth-child(2) > .card > .card-img-top').should("be.visible")
       cy.get(':nth-child(1) > .card > .card-body > .card-title').should("be.visible")
+      cy.get(':nth-child(2) > .card > .card-body > .card-title').should("be.visible")
       cy.get(':nth-child(1) > .card > .card-body > .card-text').should("be.visible")
+      cy.get(':nth-child(2) > .card > .card-body > .card-text').should("be.visible")
       //CLIC EN INICIAR SESIÓN COMO USUARIO
-      cy.get(':nth-child(1) > .card > .card-body > div.text-center > .btn').should("be.visible").click()     
+      cy.get(':nth-child(1) > .card > .card-body > .card-title').should("be.visible").click()     
      //ESCRIBIR EL USUARIO Y CONTRASEÑA EN EL ACCESO A USUARIOS       
       cy.get('#Mail').should("be.visible").type("flucas.marquez@hotmail.com.ar")
       cy.get('#Password').should("be.visible").type("32785541")
@@ -35,10 +38,10 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
       //CREAR PROYECTO NUEVO
       cy.get(':nth-child(5) > .nav-link').should("be.visible").click()
       cy.get('h1').should("be.visible").contains("Listado de Proyectos")    
-      cy.get('.pb-3 > :nth-child(4)').should("be.visible").contains("Descripción de esta función")
+      cy.get('.pb-3 > :nth-child(4)').should("be.visible").contains("Gestion de tareas, cobros y graficos")
       cy.get('[href="/Project/Create"]').should("be.visible").click()
       cy.get('h1').should("be.visible").contains("Agregar Proyectos")    
-      cy.get('.pb-3 > :nth-child(4)').should("be.visible").contains("Descripcion de esta funcion")
+      cy.get('.pb-3 > :nth-child(4)').should("be.visible").contains("Descripcion de esta función")
       cy.get(':nth-child(1) > .control-label').should("be.visible").contains("Nombre del Proyecto") 
       cy.get('#Name').should("be.visible").type("Casa de 2 habitaciones con hall")    
       cy.get(':nth-child(2) > .control-label').should("be.visible").contains("Presupuesto")

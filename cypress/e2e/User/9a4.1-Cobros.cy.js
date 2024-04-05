@@ -3,21 +3,24 @@ require('cypress-xpath')
 
 describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
     it('passes', () => {
-      // INGRESO A LA WEB DE ARQUISOFT
-      cy.visit('https://localhost:7085/')  
-      // VERIFICAR NOMBRE ARQUISOFT AL INGRESAR A LA PÁGINA
-      cy.get('.display-1').should("be.visible") 
-      // VERIFICAR LAS IMAGENES DEL LOGIN, EL TÍTULO DE LOGIN USUARIO Y DESCRIPCIÓN
-      cy.get(':nth-child(1) > .card > .card-img-top').should("be.visible")
-      cy.get(':nth-child(1) > .card > .card-body > .card-title').should("be.visible")
-      cy.get(':nth-child(1) > .card > .card-body > .card-text').should("be.visible")
-      // CLIC EN INICIAR SESIÓN COMO USUARIO
-      cy.get(':nth-child(1) > .card > .card-body > div.text-center > .btn').should("be.visible").click()     
-     // ESCRIBIR EL USUARIO Y CONTRASEÑA EN EL ACCESO A USUARIOS       
-      cy.get('#Mail').should("be.visible").type("flucas.marquez@hotmail.com.ar")
-      cy.get('#Password').should("be.visible").type("32785541")
-      // HACER CLIC EN EL BOTÓN INGRESAR
-      cy.get('.btn-primary').should("be.visible").click()
+     //INGRESO A LA WEB DE ARQUISOFT
+     cy.visit('https://localhost:7085/')  
+     //VERIFICAR NOMBRE ARQUISOFT AL INGRESAR A LA PÁGINA
+     cy.get('.display-1').should("be.visible") 
+     //VERIFICAR LAS IMAGENES DEL LOGIN, EL TÍTULO DE LOGIN USUARIO Y DESCRIPCIÓN
+     cy.get(':nth-child(1) > .card > .card-img-top').should("be.visible")
+     cy.get(':nth-child(2) > .card > .card-img-top').should("be.visible")
+     cy.get(':nth-child(1) > .card > .card-body > .card-title').should("be.visible")
+     cy.get(':nth-child(2) > .card > .card-body > .card-title').should("be.visible")
+     cy.get(':nth-child(1) > .card > .card-body > .card-text').should("be.visible")
+     cy.get(':nth-child(2) > .card > .card-body > .card-text').should("be.visible")
+     //CLIC EN INICIAR SESIÓN COMO USUARIO
+     cy.get(':nth-child(1) > .card > .card-body > .card-title').should("be.visible").click()     
+    //ESCRIBIR EL USUARIO Y CONTRASEÑA EN EL ACCESO A USUARIOS       
+     cy.get('#Mail').should("be.visible").type("flucas.marquez@hotmail.com.ar")
+     cy.get('#Password').should("be.visible").type("32785541")
+     //HACER CLIC EN EL BOTÓN INGRESAR
+     cy.get('.btn-primary').should("be.visible").click()
       // VERIFICAR LA EXISTENCIA DEL NOMBRE Arquisoft (para Arquitectos) EN LA WEB AL INGRESAR
       cy.get('.navbar-brand > strong').should("be.visible").contains("Arquisoft (para Arquitectos)")
       // VERIFICAR EL NOMBRE DEL USUARIO LOGUEADO EN LA WEB AL INGRESAR
@@ -86,7 +89,7 @@ cy.get('#dt-search-0').should("be.visible").type("Casa de 2 habitaciones con hal
 cy.get('.btn-warning').should("be.visible").click()
 cy.get('[href="/Payment/Create/16"]').should("be.visible").click()
 cy.get('h1').should("be.visible").contains("Agregar Cobro")
-cy.get('.pb-3 > :nth-child(4)').should("be.visible").contains("Permite agregar un nuevo cobro al Proyecto:")
+cy.get('.pb-3 > :nth-child(4)').should("be.visible").contains("Agregar un nuevo cobro al Proyecto:")
 cy.get('.row > .form-group > .control-label').should("be.visible").contains("Nº Cobro:")
 cy.get(':nth-child(2) > .control-label').should("be.visible").contains("Fecha de cobro:")
 cy.get(':nth-child(4) > .control-label').should("be.visible").contains("Monto")
@@ -122,7 +125,7 @@ cy.get('#dt-search-0').should("be.visible").type("Casa de 2 habitaciones con hal
 cy.get('.btn-warning').should("be.visible").click()
 cy.get('[href="/Payment/Create/16"]').should("be.visible").click()
 cy.get('h1').should("be.visible").contains("Agregar Cobro")
-cy.get('.pb-3 > :nth-child(4)').should("be.visible").contains("Permite agregar un nuevo cobro al Proyecto:")
+cy.get('.pb-3 > :nth-child(4)').should("be.visible").contains("Agregar un nuevo cobro al Proyecto:")
 cy.get('.row > .form-group > .control-label').should("be.visible").contains("Nº Cobro:")
 cy.get(':nth-child(2) > .control-label').should("be.visible").contains("Fecha de cobro:")
 cy.get(':nth-child(4) > .control-label').should("be.visible").contains("Monto")
@@ -156,7 +159,7 @@ cy.get('#dt-search-0').should("be.visible").type("Casa de 2 habitaciones con hal
 cy.get('.btn-warning').should("be.visible").click()
 cy.get('[href="/Payment/Create/16"]').should("be.visible").click()
 cy.get('h1').should("be.visible").contains("Agregar Cobro")
-cy.get('.pb-3 > :nth-child(4)').should("be.visible").contains("Permite agregar un nuevo cobro al Proyecto:")
+cy.get('.pb-3 > :nth-child(4)').should("be.visible").contains("Agregar un nuevo cobro al Proyecto:")
 cy.get('.row > .form-group > .control-label').should("be.visible").contains("Nº Cobro:")
 cy.get(':nth-child(2) > .control-label').should("be.visible").contains("Fecha de cobro:")
 cy.get(':nth-child(4) > .control-label').should("be.visible").contains("Monto")

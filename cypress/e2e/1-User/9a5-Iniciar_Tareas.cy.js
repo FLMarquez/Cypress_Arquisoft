@@ -119,8 +119,8 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
       cy.get('form > :nth-child(6) > :nth-child(1)').should("be.visible").contains("Listado")
       cy.get(':nth-child(6) > .row > :nth-child(1) > .form-label').should("be.visible").contains("Compromiso Inicial:")
       cy.get('.row > :nth-child(2) > .form-label').should("be.visible").contains("Compromiso Actual:")
-      cy.get(':nth-child(1) > .text-muted').should("be.visible").contains("05-04-2024")
-      cy.get('.row > :nth-child(2) > .text-muted').should("be.visible").contains("05-04-2024")
+      cy.get(':nth-child(1) > .text-muted').should("be.visible").contains("06-04-2024")
+      cy.get('.row > :nth-child(2) > .text-muted').should("be.visible").contains("06-04-2024")
 
       //ASIGNAR NUEVO ITEM
       cy.get('.btn-group > button.btn-primary').should("be.visible").click()

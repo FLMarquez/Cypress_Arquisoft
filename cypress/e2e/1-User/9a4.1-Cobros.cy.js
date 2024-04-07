@@ -50,7 +50,7 @@ cy.get('[style="text-align: right;"]').then($numeroPantalla1 => {
 
     cy.get(':nth-child(5) > .nav-link').should("be.visible").click()
     cy.get('#dt-search-0').should("be.visible").type("Casa de 2 habitaciones con hall{enter}")
-    cy.get('[href="/Project/Edit/16"]').should("be.visible").click()
+    cy.get('[href="/Project/Edit/26"]').should("be.visible").click()
 
     // Obtener el número de pantalla2
     cy.get('#Budget').then($numeroPantalla2 => {
@@ -87,7 +87,8 @@ cy.get('[style="text-align: right;"]').then($numeroPantalla1 => {
 cy.get(':nth-child(5) > .nav-link').should("be.visible").click()
 cy.get('#dt-search-0').should("be.visible").type("Casa de 2 habitaciones con hall{enter}")
 cy.get('.btn-warning').should("be.visible").click()
-cy.get('[href="/Payment/Create/16"]').should("be.visible").click()
+cy.wait(1000)
+cy.xpath("//a[contains(.,'Crear Cobro')]").should("be.visible").click()
 cy.get('h1').should("be.visible").contains("Agregar Cobro")
 cy.get('.pb-3 > :nth-child(4)').should("be.visible").contains("Agregar un nuevo cobro al Proyecto:")
 cy.get('.row > .form-group > .control-label').should("be.visible").contains("Nº Cobro:")
@@ -123,7 +124,7 @@ cy.get('.m-3 > .btn-primary').should("be.visible").click()
 cy.get(':nth-child(5) > .nav-link').should("be.visible").click()
 cy.get('#dt-search-0').should("be.visible").type("Casa de 2 habitaciones con hall{enter}")
 cy.get('.btn-warning').should("be.visible").click()
-cy.get('[href="/Payment/Create/16"]').should("be.visible").click()
+cy.xpath("//a[contains(.,'Crear Cobro')]").should("be.visible").click()
 cy.get('h1').should("be.visible").contains("Agregar Cobro")
 cy.get('.pb-3 > :nth-child(4)').should("be.visible").contains("Agregar un nuevo cobro al Proyecto:")
 cy.get('.row > .form-group > .control-label').should("be.visible").contains("Nº Cobro:")
@@ -157,7 +158,7 @@ cy.get('.m-3 > .btn-primary').should("be.visible").click()
 cy.get(':nth-child(5) > .nav-link').should("be.visible").click()
 cy.get('#dt-search-0').should("be.visible").type("Casa de 2 habitaciones con hall{enter}")
 cy.get('.btn-warning').should("be.visible").click()
-cy.get('[href="/Payment/Create/16"]').should("be.visible").click()
+cy.xpath("//a[contains(.,'Crear Cobro')]").should("be.visible").click()
 cy.get('h1').should("be.visible").contains("Agregar Cobro")
 cy.get('.pb-3 > :nth-child(4)').should("be.visible").contains("Agregar un nuevo cobro al Proyecto:")
 cy.get('.row > .form-group > .control-label').should("be.visible").contains("Nº Cobro:")
@@ -202,15 +203,19 @@ cy.get('.m-3 > .btn-primary').should("be.visible").click()
   
        
       // Obtener los elementos de la tabla y sus valores
-      cy.get('#myTable > tbody > :nth-child(1) > :nth-child(4)').then(($row1Column4) => {
+      cy.get('#dt-search-0').should("be.visible").clear()
+      cy.get('#dt-search-0').should("be.visible").type("Efectivo{enter}")
+      cy.get('#myTable > tbody > tr > :nth-child(4)').then(($row1Column4) => {
         const valor1 = parseCurrencyToNumber($row1Column4.text())
         console.log('Valor 1:', valor1);
-        
-        cy.get('tbody > :nth-child(2) > :nth-child(4)').then(($row2Column4) => {
+        cy.get('#dt-search-0').should("be.visible").clear()
+        cy.get('#dt-search-0').should("be.visible").type("Transferencia{enter}")
+        cy.get('#myTable > tbody > tr > :nth-child(4)').then(($row2Column4) => {
           const valor2 = parseCurrencyToNumber($row2Column4.text())
           console.log('Valor 2:', valor2);
-  
-          cy.get('tbody > :nth-child(3) > :nth-child(4)').then(($row3Column4) => {
+          cy.get('#dt-search-0').should("be.visible").clear()
+          cy.get('#dt-search-0').should("be.visible").type("Débito{enter}")
+          cy.get('#myTable > tbody > tr > :nth-child(4)').then(($row3Column4) => {
             const valor3 = parseCurrencyToNumber($row3Column4.text())
             console.log('Valor 3:', valor3);
   
@@ -219,17 +224,78 @@ cy.get('.m-3 > .btn-primary').should("be.visible").click()
             console.log('Valor Suma Valores:', sumaValores);
   
             // Obtener el elemento específico
-            cy.get('tbody > :nth-child(3) > :nth-child(4)').then(($specificElement) => {
+            cy.get('[style="display: flex; align-items: center;"] > .table > tbody > tr > :nth-child(5)').then(($specificElement) => {
               const valorEspecifico = parseCurrencyToNumber($specificElement.text())
               console.log('Valor Especifico:', valorEspecifico);
 
               // Verificar si la suma de los valores seleccionados coincide con el valor específico
               expect(sumaValores).to.equal(valorEspecifico)
+
+
+              
             })
+
+            
           })
-           
-  
-      
+
+
+          // Realizar la resta de los valores obtenidos
+const restarResultado = (valor1, valor2) => {
+    const resultado = valor1 - valor2;
+    return resultado;
+};
+
+// Obtener el valor del primer elemento
+cy.get('.fs-6 > .text-black').then(($elemento1) => {
+    const valor1 = parseFloat($elemento1.text().replace(/[^\d.,]/g, ''));
+    
+    // Obtener el valor del segundo elemento
+    cy.get('[style="display: flex; align-items: center;"] > .table > tbody > tr > :nth-child(5)').then(($elemento2) => {
+        const valor2 = parseFloat($elemento2.text().replace(/[^\d.,]/g, ''));
+
+        // Realizar la resta
+        const resultadoResta = restarResultado(valor1, valor2);
+
+        // Asignar el resultado a un nuevo elemento
+        cy.get('[style="display: flex; align-items: center;"] > .table > tbody > tr > :nth-child(8)').should("be.visible").contains(resultadoResta);
+    });
+});
+     
+        cy.get('#dt-search-0').should("be.visible").clear()
+        cy.get('#dt-search-0').should("be.visible").type("Efectivo")
+        cy.xpath("(//button[contains(.,'Anular')])[1]").should("be.visible").click(); 
+        cy.get('#deleteModalLabel').should("be.visible").contains("Motivo de Anulación")
+        cy.get('[for="deleteReason"]').should("be.visible").contains("Motivo")
+        cy.xpath("//textarea[contains(@id,'deleteReason')]").click().type("El cobro no fué realizado")
+        cy.get('#confirmDeleteBtn').should("be.visible").click()
+        cy.get('tbody > :nth-child(1) > :nth-child(10)').should("be.visible").contains("El cobro no fué realizado")
+
+
+// Función para realizar la resta entre los valores de los elementos
+const restarValores = () => {
+    // Obtener el primer valor
+    cy.get('.fs-6 > .text-black').then(($elemento1) => {
+        const valor1 = parseFloat($elemento1.text().replace(/[^\d.,]/g, ''));
+
+        // Obtener el segundo valor
+        cy.get('[style="display: flex; align-items: center;"] > .table > tbody > tr > :nth-child(5)').then(($elemento2) => {
+            const valor2 = parseFloat($elemento2.text().replace(/[^\d.,]/g, ''));
+
+            // Calcular la resta
+            const resultado = valor1 - valor2;
+
+            // Asignar el resultado al elemento deseado
+            cy.get('[style="display: flex; align-items: center;"] > .table > tbody > tr > :nth-child(8)').should("be.visible").contains(resultado);
+        });
+    });
+};
+
+// Llamar a la función para realizar la resta
+restarValores();
+
+
+
+               
   
   // CERRAR SESIÓN  
   cy.get(':nth-child(8) > .nav-link').should("be.visible").contains("Cerrar sesión").click();        

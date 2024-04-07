@@ -67,7 +67,14 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
       cy.get(':nth-child(16) > .container > :nth-child(1) > :nth-child(2) > .col-9 > strong').contains("Control de Calidad para Proyecto Sin Detalle Prueba")
 
 
-      cy.get('#Assignment_StartedDate').clear().type('2024-04-05')
+      // Obtener la fecha actual
+      const today = new Date();
+
+      // Formatear la fecha en el formato yyyy-mm-dd
+      const formattedDate = today.toISOString().slice(0, 10);
+
+      // Luego, en tu prueba Cypress, puedes usar la fecha formateada
+      cy.get('#Assignment_StartedDate').clear().type(formattedDate);
       cy.wait(1000)
       cy.get(':nth-child(12) > .container > :nth-child(1)').click()
       cy.wait(1000)
@@ -119,8 +126,16 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
       cy.get('form > :nth-child(6) > :nth-child(1)').should("be.visible").contains("Listado")
       cy.get(':nth-child(6) > .row > :nth-child(1) > .form-label').should("be.visible").contains("Compromiso Inicial:")
       cy.get('.row > :nth-child(2) > .form-label').should("be.visible").contains("Compromiso Actual:")
-      cy.get(':nth-child(1) > .text-muted').should("be.visible").contains("06-04-2024")
-      cy.get('.row > :nth-child(2) > .text-muted').should("be.visible").contains("06-04-2024")
+      // Obtener la fecha actual
+      const today2 = new Date();
+
+      // Formatear la fecha en el formato dd-mm-aaaa
+      const formattedDate2 = `${today2.getDate().toString().padStart(2, '0')}-${(today2.getMonth() + 1).toString().padStart(2, '0')}-${today2.getFullYear()}`;
+
+      // Luego, en tu prueba Cypress, puedes usar la fecha formateada
+      cy.get(':nth-child(1) > .text-muted').should("be.visible").contains(formattedDate2);
+      cy.get('.row > :nth-child(2) > .text-muted').should("be.visible").contains(formattedDate2);
+
 
       //ASIGNAR NUEVO ITEM
       cy.get('.btn-group > button.btn-primary').should("be.visible").click()

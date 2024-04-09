@@ -60,6 +60,11 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
       cy.get('#localitySelect').should("be.visible").select("Córdoba") 
       cy.get('.m-3 > .btn-primary').should("be.visible").click()
       cy.wait(1000)
+      // Simular presionar la tecla F5 para recargar la página
+      cy.reload();
+
+      // Esperar a que la página se recargue completamente
+      cy.wait(2000); // Ajusta el tiempo de espera según sea necesario
       //VALIDAR LA CREACIÓN DEL NUEVO CLIENTE
       cy.get('#dt-search-0').should("be.visible").type("Marquez")
       cy.get('.sorting_1').should("be.visible").contains("Marquez")

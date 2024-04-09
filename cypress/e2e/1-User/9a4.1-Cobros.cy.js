@@ -50,7 +50,7 @@ cy.get('[style="text-align: right;"]').then($numeroPantalla1 => {
 
     cy.get(':nth-child(5) > .nav-link').should("be.visible").click()
     cy.get('#dt-search-0').should("be.visible").type("Casa de 2 habitaciones con hall{enter}")
-    cy.get('[href="/Project/Edit/26"]').should("be.visible").click()
+    cy.xpath("//a[contains(.,'Editar')]").should("be.visible").click()
 
     // Obtener el número de pantalla2
     cy.get('#Budget').then($numeroPantalla2 => {
@@ -266,8 +266,11 @@ cy.get('.fs-6 > .text-black').then(($elemento1) => {
         cy.xpath("(//button[contains(.,'Anular')])[1]").should("be.visible").click(); 
         cy.get('#deleteModalLabel').should("be.visible").contains("Motivo de Anulación")
         cy.get('[for="deleteReason"]').should("be.visible").contains("Motivo")
+        cy.wait(1000)
         cy.xpath("//textarea[contains(@id,'deleteReason')]").click().type("El cobro no fué realizado")
+        cy.wait(1000)
         cy.get('#confirmDeleteBtn').should("be.visible").click()
+        cy.wait(1000)
         cy.get('tbody > :nth-child(1) > :nth-child(10)').should("be.visible").contains("El cobro no fué realizado")
 
 

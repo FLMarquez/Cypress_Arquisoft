@@ -3,7 +3,7 @@ const { defineConfig } = require('cypress')
 module.exports = defineConfig({
   video: true,
   videosFolder: "cypress/videos",
-  screenshotsFolder: "cypress/screenshots",
+  screenshotsFolder: "cypress/screenshots",  
   viewportWidth: 1500,
   viewportHeight: 864,
   chromeWebSecurity: false, // Corrección del nombre de la propiedad

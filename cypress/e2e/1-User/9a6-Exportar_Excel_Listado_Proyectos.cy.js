@@ -4,9 +4,10 @@ const XLSX = require('xlsx')
 
 describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
     it('passes', () => {
-        cy.writeFile('cypress/fixtures/config.json', {
-            default_directory: 'C:/Users/Lmarquez/Desktop/ARQUISOFT/Excel/Listado de Proyectos con Detalles - 02-04-2024.xlsx'
-        })
+      cy.writeFile('cypress/fixtures/config.json', {
+        default_directory: 'C:\\Users\\Lmarquez\\Desktop\\Escritorio PC Lucas\\Lucas\\Test_Arquisoft\\cypress\\e2e\\Arquisoft\\cypress\\downloads\\Listado de Proyectos con Detalles - 14-04-2024.xlsx'
+    })
+    
 
           // Establecer chromeWebSecurity en false
           cy.visit('https://localhost:7085/', {
@@ -44,14 +45,14 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
         cy.get(':nth-child(6) > .nav-link').should("be.visible").contains("Servicio")
         cy.get(':nth-child(7) > .nav-link').should("be.visible").contains("Usuario: Federico Lucas Marquez")
         cy.get(':nth-child(8) > .nav-link').should("be.visible").contains("Cerrar sesión") 
-        //CREAR PROYECTO NUEVO
+        //EXPORTAR EXCEL
         cy.get(':nth-child(5) > .nav-link').should("be.visible").click()
         cy.get('h1').should("be.visible").contains("Listado de Proyectos")    
         cy.get('.pb-3 > :nth-child(4)').should("be.visible").contains("Gestion de tareas, cobros y graficos")
         cy.get('[href="/Project/ExportToExcel"]').should("be.visible").click()
        
-        cy.wait(1000)      
-
+        cy.wait(1000)   
+                 
         //CERRAR SESIÓN  
         cy.get(':nth-child(8) > .nav-link').should("be.visible").click()   
         cy.get('.modal-body').should("be.visible").contains("¿Estás seguro de que deseas cerrar sesión?")  

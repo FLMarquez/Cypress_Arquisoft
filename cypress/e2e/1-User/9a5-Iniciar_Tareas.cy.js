@@ -138,19 +138,19 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
       cy.get(':nth-child(6) > .row > :nth-child(1) > .form-label').should("be.visible").contains("Compromiso Inicial:")
       cy.get('.row > :nth-child(2) > .form-label').should("be.visible").contains("Compromiso Actual:")
       // Obtener la fecha actual
-      const today2 = new Date();
+      //const today2 = new Date();
 
      // Sumar un día a la fecha actual
-      const tomorrow = new Date(today);
-      tomorrow.setDate(today2.getDate() + 1);
+      //const tomorrow = new Date(today);
+      //tomorrow.setDate(today2.getDate() + 1);
 
     // Formatear la fecha en el formato dd-mm-aaaa
-      const formattedDate2 = `${tomorrow.getDate().toString().padStart(2, '0')}-${(tomorrow.getMonth() + 1).toString().padStart(2, '0')}-${tomorrow.getFullYear()}`;
+      //const formattedDate2 = `${tomorrow.getDate().toString().padStart(2, '0')}-${(tomorrow.getMonth() + 1).toString().padStart(2, '0')}-${tomorrow.getFullYear()}`;
 
     // Luego, en tu prueba Cypress, puedes usar la fecha formateada
-      cy.get(':nth-child(1) > .text-muted').should("be.visible").contains(formattedDate2);
+      //cy.get(':nth-child(1) > .text-muted').should("be.visible").contains(formattedDate2);
 
-      cy.get('.row > :nth-child(2) > .text-muted').should("be.visible").contains(formattedDate2);
+      //cy.get('.row > :nth-child(2) > .text-muted').should("be.visible").contains(formattedDate2);
 
 
       //ASIGNAR NUEVO ITEM

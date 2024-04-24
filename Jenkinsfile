@@ -5,15 +5,15 @@ pipeline {
         nodejs "node"
     }
 
-    stages {
-        stage('Limpieza de base de datos') {
-            steps {
+    //stages {
+        //stage('Limpieza de base de datos') {
+           // steps {
                 // Ejecutar el script de limpieza de base de datos
-                bat '''
-                sqlcmd -S "LMARQUEZ-NB\\SQLEXPRESS" -E -i limpiar_db.sql
-                '''
-            }
-        }
+               // bat '''
+              //  sqlcmd -S "LMARQUEZ-NB\\SQLEXPRESS" -E -i limpiar_db.sql
+               // '''
+          //  }
+       // }
 
         stage('Cypress Parallel Test Suite') {
             parallel {
@@ -43,4 +43,4 @@ pipeline {
             }
         }
     }
-}
+//}

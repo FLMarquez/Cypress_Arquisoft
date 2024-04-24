@@ -25,7 +25,8 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
 
       //SELECCIONAR EL ROL NUEVO
       cy.get('#UserRoleId').select('Soporte')
-
+     
+      
       //CLIC EN BOTÓN CAMBIAR
       cy.get('form > .btn-primary').should("be.visible").click()
 

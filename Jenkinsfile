@@ -5,7 +5,7 @@ pipeline {
         nodejs "node"
     }
 
-    //stages {
+    stages {
         //stage('Limpieza de base de datos') {
            // steps {
                 // Ejecutar el script de limpieza de base de datos
@@ -43,4 +43,4 @@ pipeline {
             }
         }
     }
-//}
+}

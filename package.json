@@ -11,6 +11,7 @@
   "devDependencies": {
     "cypress": "^13.7.3",
     "cypress-downloadfile": "^1.2.3",
+    "cypress-file-upload": "^5.0.8",
     "cypress-sql-server": "^1.0.0",
     "cypress-xpath": "^2.0.1",
     "fs-extra": "^11.2.0",

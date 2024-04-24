@@ -70,18 +70,26 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
       // Obtener la fecha actual
       const today = new Date();
 
-      // Formatear la fecha en el formato yyyy-mm-dd
+// Formatear la fecha en el formato yyyy-mm-dd
       const formattedDate = today.toISOString().slice(0, 10);
 
-      // Luego, en tu prueba Cypress, puedes usar la fecha formateada
+// Establecer la fecha actual en el campo 'Assignment_StartedDate'
       cy.get('#Assignment_StartedDate').clear().type(formattedDate);
+
       cy.wait(1000)
       cy.get(':nth-child(12) > .container > :nth-child(1)').click()
       cy.wait(1000)
       cy.get(':nth-child(12) > .container > :nth-child(2) > .assignment-group > .row > .col-auto > .btn').click();
       cy.wait(1000)
       //cy.get('#Assignment_StartedDate').clear().type('2024-04-11')      
-      cy.get('#Assignment_StartedDate').clear().type(() => new Date().toISOString().split('T')[0]);
+      // Obtener la fecha actual
+      const today3 = new Date();
+
+// Formatear la fecha en el formato yyyy-mm-dd
+      const formattedDate3 = today3.toISOString().split('T')[0];
+
+// Establecer la fecha actual en el campo 'Assignment_StartedDate'
+      cy.get('#Assignment_StartedDate').clear().type(formattedDate3);
 
 
       cy.wait(1000)
@@ -89,19 +97,19 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
       cy.wait(1000)
       cy.get(':nth-child(13) > .container > :nth-child(2) > .assignment-group > .row > .col-auto > .btn').click()
       cy.wait(1000)
-      cy.get('#Assignment_StartedDate').clear().type('2024-04-18')
+      cy.get('#Assignment_StartedDate').clear().type(formattedDate);
       cy.wait(1000)
       cy.get(':nth-child(14) > .container > :nth-child(1) > :nth-child(2) > .col-3').click()
       cy.wait(1000)
       cy.get(':nth-child(14) > .container > :nth-child(2) > .assignment-group > .row > .col-auto > .btn').click()
       cy.wait(1000)
-      cy.get('#Assignment_StartedDate').clear().type('2024-04-25')
+      cy.get('#Assignment_StartedDate').clear().type(formattedDate);
       cy.wait(1000)
       cy.get(':nth-child(15) > .container > :nth-child(1) > :nth-child(2) > .col-3').click()
       cy.wait(1000)
       cy.get(':nth-child(15) > .container > :nth-child(2) > .assignment-group > .row > .col-auto > .btn').click()
       cy.wait(1000)
-      cy.get('#Assignment_StartedDate').clear().type('2024-05-02')
+      cy.get('#Assignment_StartedDate').clear().type(formattedDate);
       cy.wait(1000)
       cy.get(':nth-child(16) > .container > :nth-child(1) > :nth-child(2) > .col-3').click()
       cy.wait(1000)
@@ -132,11 +140,16 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
       // Obtener la fecha actual
       const today2 = new Date();
 
-      // Formatear la fecha en el formato dd-mm-aaaa
-      const formattedDate2 = `${today2.getDate().toString().padStart(2, '0')}-${(today2.getMonth() + 1).toString().padStart(2, '0')}-${today2.getFullYear()}`;
+     // Sumar un día a la fecha actual
+      const tomorrow = new Date(today);
+      tomorrow.setDate(today2.getDate() + 1);
 
-      // Luego, en tu prueba Cypress, puedes usar la fecha formateada
+    // Formatear la fecha en el formato dd-mm-aaaa
+      const formattedDate2 = `${tomorrow.getDate().toString().padStart(2, '0')}-${(tomorrow.getMonth() + 1).toString().padStart(2, '0')}-${tomorrow.getFullYear()}`;
+
+    // Luego, en tu prueba Cypress, puedes usar la fecha formateada
       cy.get(':nth-child(1) > .text-muted').should("be.visible").contains(formattedDate2);
+
       cy.get('.row > :nth-child(2) > .text-muted').should("be.visible").contains(formattedDate2);
 
 
@@ -144,21 +157,21 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
       cy.get('.btn-group > button.btn-primary').should("be.visible").click()
       cy.get('#exampleModalLabel').should("be.visible").contains("Agregar Item")
       cy.get('#itemSelect').should("be.visible").select('Compromiso')
-      cy.get('#NewHub_DueDate').clear().type('2024-05-02')
+      cy.get('#NewHub_DueDate').clear().type('2024-12-02')
       cy.get('#NewHub_Note').should("be.visible").type("Por problemas de Lluvia, se modifica el compromiso")
       cy.get('#NewHub_UserId').should("be.visible").select('Federico Lucas, Marquez')
       cy.get('#exampleModal > .modal-dialog > .modal-content > .modal-footer > .btn-primary').should("be.visible").click()
       cy.wait(1000)
-      cy.get('.row > :nth-child(2) > .text-muted').should("be.visible").contains("02-05-2024")
+      cy.get('.row > :nth-child(2) > .text-muted').should("be.visible").contains("02-12-2024")
       cy.wait(1000)
-      cy.get(':nth-child(1) > .sorting_1').should("be.visible").contains("02-05-2024")
+      cy.get(':nth-child(1) > .sorting_1').should("be.visible").contains("02-12-2024")
       cy.get('.dt-layout-cell > #myTable > tbody > :nth-child(1) > :nth-child(3)').should("be.visible").contains("Por problemas de Lluvia, se modifica el compromiso")
 
       //COMPROMISO Y ADJUNTO
       cy.get('.btn-group > button.btn-primary').should("be.visible").click()
       cy.get('#exampleModalLabel').should("be.visible").contains("Agregar Item")
       cy.get('#itemSelect').should("be.visible").select('Compromiso y Adjunto')
-      cy.get('#NewHub_DueDate').clear().type('2024-05-16')
+      cy.get('#NewHub_DueDate').clear().type('2024-12-16')
       cy.get('#NewHub_Note').should("be.visible").type("Se adjunt foto de las condiciones climáticas. Se modifica Compromiso")
       cy.get('#NewHub_FileName').should("be.visible").type("Foto")
       cy.get('#NewHub_FileDescription').should("be.visible").type("El día de la fecha se presenta en la obra para verificar las coniciones de cumplimiento del trabajo diario y se observa que las condiciones climáticas son malas")
@@ -176,9 +189,9 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
       
       cy.get('#NewHub_UserId').should("be.visible").select('Federico Lucas, Marquez')
       cy.get('#exampleModal > .modal-dialog > .modal-content > .modal-footer > .btn-primary').should("be.visible").click()
-      cy.xpath("//small[@class='text-muted'][contains(.,'16-05-2024')]").should("be.visible").contains("16-05-2024")
+      cy.xpath("//small[@class='text-muted'][contains(.,'16-12-2024')]").should("be.visible").contains("16-12-2024")
       cy.get('#dt-search-0').should("be.visible").type("El día de la fecha se presenta en la obra para verificar las coniciones de cumplimiento del trabajo diario y se observa que las condiciones climáticas son malas")      
-      cy.get('.sorting_1').should("be.visible").contains("16-05-2024")
+      cy.get('.sorting_1').should("be.visible").contains("16-12-2024")
       cy.get('.dt-layout-cell > #myTable > tbody > tr > :nth-child(6)').should("be.visible").contains("El día de la fecha se presenta en la obra para verificar las coniciones de cumplimiento del trabajo diario y se observa que las condiciones climáticas son malas")
       cy.get('.dt-layout-cell > #myTable > tbody > tr > :nth-child(7) > .btn').should("be.visible").click()
       cy.wait(2000)

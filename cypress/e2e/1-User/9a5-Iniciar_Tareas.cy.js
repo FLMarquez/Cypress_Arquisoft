@@ -80,7 +80,10 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
       cy.wait(1000)
       cy.get(':nth-child(12) > .container > :nth-child(2) > .assignment-group > .row > .col-auto > .btn').click();
       cy.wait(1000)
-      cy.get('#Assignment_StartedDate').clear().type('2024-04-11')
+      //cy.get('#Assignment_StartedDate').clear().type('2024-04-11')      
+      cy.get('#Assignment_StartedDate').clear().type(() => new Date().toISOString().split('T')[0]);
+
+
       cy.wait(1000)
       cy.get(':nth-child(13) > .container > :nth-child(1) > :nth-child(2) > .col-3').click()
       cy.wait(1000)

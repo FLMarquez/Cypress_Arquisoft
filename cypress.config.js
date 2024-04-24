@@ -9,7 +9,7 @@ module.exports = defineConfig({
   chromeWebSecurity: false, // Corrección del nombre de la propiedad
   defaultCommandTimeout: 15000,
   pageLoadTimeout: 19000,
-  projectId: "se1mbb",
+  projectId: "b21y8c",
   videoCompression: false, // Deshabilita la compresión de video
   e2e: {
     setupNodeEvents(on, config) {

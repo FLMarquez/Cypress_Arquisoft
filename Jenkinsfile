@@ -9,7 +9,8 @@ pipeline {
         
         stage('Checkout Code') {
             steps {
-                git url: 'https://github.com/FLMarquez/Cypress_Arquisoft.git'
+                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'e5ddfb10-374c-4b83-8529-7cfeb213e47c', url: 'https://github.com/FLMarquez/Cypress_Arquisoft.git']]])
+                
             }
         }
 

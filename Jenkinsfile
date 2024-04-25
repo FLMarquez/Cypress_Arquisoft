@@ -10,11 +10,11 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 checkout([$class: 'GitSCM', 
-                          branches: [[name: '*/main']], 
+                          branches: [[name: '*/master']],  // Asegúrate de que esta rama exista
                           doGenerateSubmoduleConfigurations: false, 
                           extensions: [], 
                           submoduleCfg: [], 
-                          userRemoteConfigs: [[credentialsId: 'e5ddfb10-374c-4b83-8529-7cfeb213e47c', 
+                          userRemoteConfigs: [[credentialsId: '31dfd112-73cf-4835-937c-d2d7f515082a',  // Reemplaza con el ID correcto
                                                url: 'https://github.com/FLMarquez/Cypress_Arquisoft.git']]])
             }
         }
@@ -28,7 +28,7 @@ pipeline {
                     steps {
                         bat 'npm install'
                         bat 'npm update'
-                        bat 'npx cypress run --record --key e5ddfb10-374c-4b83-8529-7cfeb213e47c --parallel'
+                        bat 'npx cypress run --record --key e5ddfb10-374c-4b83-8529-7cfeb213e47c --parallel'  // Reemplaza con tu clave de registro
                     }
                 }
 
@@ -46,3 +46,4 @@ pipeline {
         // }
     }
 }
+

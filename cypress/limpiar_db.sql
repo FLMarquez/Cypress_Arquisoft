@@ -10,21 +10,15 @@ where Name = 'Casa de 2 habitaciones con hall'
 --TIPOLOGIA
 delete from ProjectTypes
 where ProjectTypeName = 'Vivienda Clásica con 2 habitaciones y hall'
-
 --COBROS
 delete  from Payments
 WHERE Amount IN ('2500000.00','2500000.00', '7500000.00');
-
 --SERVICIO
 delete from ServiceTypes
 where ServiceTypeName = 'Construcción de Vivienda'
-
 --HUB
 delete from Hub
 where UserName = 'Marquez'
-
-
 --ASSIGNMENTS
-delete Assignments
 delete Assignments
 where AssignmentName IN ('Planificación de Recursos Prueba','Diseño Preliminar Prueba','Adquisición de Materiales Prueba','Supervisión de Construcción Prueba','Control de Calidad Prueba');

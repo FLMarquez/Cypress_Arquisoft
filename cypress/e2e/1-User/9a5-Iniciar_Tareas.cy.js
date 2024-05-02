@@ -164,8 +164,8 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
       cy.wait(1000)
       cy.get('.row > :nth-child(2) > .text-muted').should("be.visible").contains("02-12-2024")
       cy.wait(1000)
-      cy.get(':nth-child(1) > .sorting_1').should("be.visible").contains("02-12-2024")
-      cy.get('.dt-layout-cell > #myTable > tbody > :nth-child(1) > :nth-child(3)').should("be.visible").contains("Por problemas de Lluvia, se modifica el compromiso")
+      cy.xpath('//td[@class="sorting_1"][contains(.,"02-12-2024")]').should("be.visible").contains("02-12-2024")
+      cy.xpath('(//td[contains(.,"Por problemas de Lluvia, se modifica el compromiso")])[1]').should("be.visible").contains("Por problemas de Lluvia, se modifica el compromiso")
 
       //COMPROMISO Y ADJUNTO
       cy.get('.btn-group > button.btn-primary').should("be.visible").click()

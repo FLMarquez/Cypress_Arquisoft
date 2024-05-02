@@ -67,7 +67,7 @@ Cypress.Commands.add("plantillaCypress", (descripcion, url, titulo, tiempo) => {
     cy.wait(tiempo);
   });
 
-  Cypress.Commands.add("click", (selector, t) => {
+  Cypress.Commands.overwrite("click", (selector, t) => {
     let tiempo=t
     cy.get(selector).should('be.visible').click();
     cy.wait(tiempo);
@@ -219,4 +219,14 @@ Cypress.Commands.add("plantillaCypress", (descripcion, url, titulo, tiempo) => {
       cy.log('##############ULTIMO CICLO FINAL DE TODO###############');
     });
   });
+
+  Cypress.Commands.add('Validar_Campo', (selector,men,nombre_campo,t) => {
+    cy.xpath(selector).should('be.visible').should("contain", men).then((val)=>{
+            cy.log("*************************")
+            cy.log("El/La o Los/Las " + nombre_campo + " son Incorrectos")
+            cy.log("*************************")       
+    });
+  
+})
+
   

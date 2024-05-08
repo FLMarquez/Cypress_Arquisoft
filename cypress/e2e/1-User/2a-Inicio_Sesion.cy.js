@@ -37,7 +37,7 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
       //CERRAR  SESIÓN
       cy.get(':nth-child(8) > .nav-link').should("be.visible").contains("Cerrar sesión").click()        
       cy.get('.modal-body').should("be.visible").contains("¿Estás seguro de que deseas cerrar sesión?")  
-      cy.get('.btn-primary').should("be.visible").click()       
+      cy.get('.modal-footer > .btn-primary').should("be.visible").click()       
             
 
     })

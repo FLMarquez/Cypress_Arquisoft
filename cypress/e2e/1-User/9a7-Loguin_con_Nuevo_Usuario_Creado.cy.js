@@ -52,7 +52,7 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
         cy.get(':nth-child(3) > .card > .card-body > .card-text').should("be.visible").contains("Casa de 2 habitaciones con hall")
         cy.xpath("//h5[contains(.,'Porcentaje de Proyectos por Tipo')]").should("be.visible").contains("Porcentaje de Proyectos por Tipo")
         cy.xpath("//h5[contains(.,'Cantidad de Proyectos por Tipo')]").should("be.visible").contains("Cantidad de Proyectos por Tipo")
-        cy.xpath("//h5[contains(.,'Tipos de Proyectos por Intervalo de Tiempo')]").should("be.visible").contains("Tipos de Proyectos por Intervalo de Tiempo")
+        cy.xpath("//h5[@class='card-title'][contains(.,'Cantidad de Proyectos por Tipo y Tiempo')]").should("be.visible").contains("Cantidad de Proyectos por Tipo y Tiempo")
         cy.xpath("//h5[contains(.,'Estado de Proyectos por Intervalo de Tiempo')]").should("be.visible").contains("Estado de Proyectos por Intervalo de Tiempo")
         cy.xpath("//h5[contains(.,'Cobro por Intervalo de Tiempo')]").should("be.visible").contains("Cobro por Intervalo de Tiempo")
         cy.xpath("//h5[contains(.,'Porcentaje y Montos de Metodos de Pago')]").should("be.visible").contains("Porcentaje y Montos de Metodos de Pago")
@@ -60,7 +60,7 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
         //CERRAR SESIÓN  
         cy.get(':nth-child(8) > .nav-link').should("be.visible").contains("Cerrar sesión").click()        
         cy.get('.modal-body').should("be.visible").contains("¿Estás seguro de que deseas cerrar sesión?")  
-        cy.get('.btn-primary').should("be.visible").click()      
+        cy.get('.modal-footer > .btn-primary').should("be.visible").click()      
       });
     });
 

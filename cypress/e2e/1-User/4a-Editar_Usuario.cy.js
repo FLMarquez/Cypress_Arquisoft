@@ -50,7 +50,7 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
       cy.get('#dt-search-0').should("be.visible").type("Riquelme")
       cy.get('.sorting_1').should("be.visible").contains("Riquelme")
       //CERRAR  SESIÓN
-      cy.get(':nth-child(8) > .nav-link').should("be.visible").contains("Cerrar sesión").click()        
+      cy.xpath("//button[@class='nav-link btn btn-link'][contains(.,'Cerrar sesión')]").should("be.visible").contains("Cerrar sesión").click()        
       cy.get('.modal-body').should("be.visible").contains("¿Estás seguro de que deseas cerrar sesión?")  
       cy.get('.modal-footer > .btn-primary').should("be.visible").click() 
 

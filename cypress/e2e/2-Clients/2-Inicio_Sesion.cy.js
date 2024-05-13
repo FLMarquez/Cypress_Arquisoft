@@ -97,9 +97,9 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
       //cy.get(':nth-child(5) > .card > .card-body').should("be.visible").contains("Fecha de Inicio: 23-04-24")
 
       //CERRAR  SESSION
-      cy.get(':nth-child(2) > .nav-link').should("be.visible").contains("Cerrar sesión").click()        
+      cy.xpath("//button[@class='nav-link btn btn-link'][contains(.,'Cerrar sesión')]").should("be.visible").contains("Cerrar sesión").click()        
       cy.get('.modal-body').should("be.visible").contains("¿Estás seguro de que deseas cerrar sesión?")  
-      cy.get('.modal-footer > .btn-primary').should("be.visible").click() 
+      cy.get('.modal-footer > .btn-primary').should("be.visible").click()
             
 
     })

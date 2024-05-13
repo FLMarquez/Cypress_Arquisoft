@@ -35,7 +35,8 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
         //VERIFICAR LA EXISTENCIA DEL NOMBRE Arquisoft (para Arquitectos) EN LA WEB AL INGRESAR
         cy.get('.navbar-brand > strong').should("be.visible").contains("Arquisoft (para Arquitectos)")
         //VERIFICAR EL NOMBRE DEL USUARIO LOGUEADO EN LA WEB AL INGRESAR
-        cy.get(':nth-child(7) > .nav-link').should("be.visible").contains("Usuario: Federico Lucas Marquez")
+        cy.xpath('//span[contains(.,"Usuario: Federico Lucas Marquez")]').should("be.visible").contains("Usuario: Federico Lucas Marquez")
+
         //VERIFICAR LOS BOTONES HABILITADOS QUE TIENE EL USUARIO ADMIN AL INGRESAR A LA WEB CON USUARIO Y CONTRASEÑA VALIDA
         cy.get(':nth-child(1) > .nav-link').should("be.visible").contains("Dashboard")    
         cy.get(':nth-child(2) > .nav-link').should("be.visible").contains("Clientes")
@@ -43,8 +44,8 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
         cy.get(':nth-child(4) > .nav-link').should("be.visible").contains("Tipología")
         cy.get(':nth-child(5) > .nav-link').should("be.visible").contains("Proyecto")
         cy.get(':nth-child(6) > .nav-link').should("be.visible").contains("Servicio")
-        cy.get(':nth-child(7) > .nav-link').should("be.visible").contains("Usuario: Federico Lucas Marquez")
-        cy.get(':nth-child(8) > .nav-link').should("be.visible").contains("Cerrar sesión") 
+        cy.xpath('//span[contains(.,"Usuario: Federico Lucas Marquez")]').should("be.visible").contains("Usuario: Federico Lucas Marquez")
+        cy.xpath("//button[@class='nav-link btn btn-link'][contains(.,'Cerrar sesión')]").should("be.visible").contains("Cerrar sesión")
         //EXPORTAR EXCEL
         cy.get(':nth-child(5) > .nav-link').should("be.visible").click()
         cy.get('h1').should("be.visible").contains("Listado de Proyectos")    
@@ -54,8 +55,8 @@ describe('PRUEBA DE LA FUNCIONALIDAD DE USUARIOS: HAPPY PATH', () => {
         cy.wait(1000)   
                  
         //CERRAR SESIÓN  
-        cy.get(':nth-child(8) > .nav-link').should("be.visible").click()   
+        cy.xpath("//button[@class='nav-link btn btn-link'][contains(.,'Cerrar sesión')]").should("be.visible").contains("Cerrar sesión").click()        
         cy.get('.modal-body').should("be.visible").contains("¿Estás seguro de que deseas cerrar sesión?")  
-        cy.get('.modal-footer > .btn-primary').should("be.visible").click()                          
+        cy.get('.modal-footer > .btn-primary').should("be.visible").click()                         
     })
 })
